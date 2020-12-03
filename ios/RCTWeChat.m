@@ -429,8 +429,16 @@ RCT_EXPORT_METHOD(shareMiniProgram:(NSDictionary *)data
     object.userName = data[@"userName"];
     object.path = data[@"path"];
     NSString *hdImageUrl = data[@"hdImageUrl"];
+    BOOL isLocal = data[@"isLocal"];
+    
     if (hdImageUrl != NULL && ![hdImageUrl isEqual:@""]) {
-        UIImage *image = [self getImageFromURL:hdImageUrl];
+//        UIImage *image = [self getImageFromURL:hdImageUrl];
+        UIImage *image;
+        if (isLocal) {
+            image = [[UIImage alloc] initWithContentsOfFile:hdImageUrl];
+        } else {
+            image = [self getImageFromURL:hdImageUrl];
+        }
         // 压缩图片到小于128KB
         object.hdImageData = [self compressImage: image toByte:131072];
     }
