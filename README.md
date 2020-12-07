@@ -318,10 +318,13 @@ WeChat.shareMiniProgram({
   userName: 'gh_d39d10000000',
   webpageUrl: 'https://google.com/show.html',
   thumbImageUrl: 'https://google.com/1.jpg',
-  scene: 0
+  scene: 0,
+  isLocal: true // <- 新增参数（iOS）
 })
 
 ```
+- isLocal为true，hdImageUrl应传入本地url
+- isLocal为false，hdImageUrl应传入远程url
 
 #### LaunchMiniProgram (LaunchMiniProgramMetadata) 跳到小程序
 
