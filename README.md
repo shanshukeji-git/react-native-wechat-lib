@@ -301,6 +301,7 @@ ShareMiniProgram
 | miniProgramType| Number | 小程序的类型，默认正式版，1.8.1及以上版本开发者工具包支持分享开发版和体验版小程序 |
 | webpageUrl| String | 兼容低版本的网页链接                   |
 | scene   | Number | 分享到, 0:会话 1:朋友圈 2:收藏 |
+| isLocal   | Boolean | true，hdImageUrl应传入本地url,false，hdImageUrl应传入远程url（iOS）|
 
 Return:
 
@@ -323,8 +324,6 @@ WeChat.shareMiniProgram({
 })
 
 ```
-- isLocal为true，hdImageUrl应传入本地url
-- isLocal为false，hdImageUrl应传入远程url
 
 #### LaunchMiniProgram (LaunchMiniProgramMetadata) 跳到小程序
 
